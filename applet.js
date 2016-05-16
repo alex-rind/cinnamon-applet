@@ -211,6 +211,11 @@ HamsterBox.prototype = {
                 return;
         }
 
+        // avoid completion interfering from earlier start
+        if (text.startsWith("-") || text.indexOf(",") != -1) {
+	    return;
+	}
+
         // category completion
         let atIndex = text.indexOf("@");
         if (atIndex != -1) {
