@@ -415,7 +415,11 @@ HamsterApplet.prototype = {
             activities.add(label, {row: i, col: 0, x_expand: false});
 
             label = new St.Label({style_class: 'popup-menu-item'});
-            label.set_text(fact.name + (0 < fact.tags.length ? (" #" + fact.tags.join(", #")) : ""));
+	    // more details on today's activities
+            label.set_text(fact.name
+//                + "@" + fact.category
+                + (0 < fact.description.length ? (", " + fact.description) : "")
+                + (0 < fact.tags.length ? (" #" + fact.tags.join(", #")) : ""));
             activities.add(label, {row: i, col: 1});
 
             label = new St.Label({style_class: 'popup-menu-item'});
